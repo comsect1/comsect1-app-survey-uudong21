@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>설문</title>
+  <link rel="stylesheet" href="comsect1/project/features/survey/poi_survey_uudong21.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Resources (no dependencies) -->
+  <script src="assets/packs/youth-policy-checkup-2026.js"></script>
+  <script src="comsect1/project/features/survey/cfg_survey_uudong21.js"></script>
+  <script src="comsect1/project/config/cfg_project_uudong21.js"></script>
+  <script src="comsect1/infra/bootstrap/cfg_core_uudong21.js"></script>
+
+  <!-- Poiesis layers (depend on resources) -->
+  <script src="comsect1/project/features/survey/poi_survey_uudong21.js"></script>
+  <script src="comsect1/infra/bootstrap/poi_core_uudong21.js"></script>
+
+  <!-- Praxis layers (depend on resources, own poi_) -->
+  <script src="comsect1/project/features/survey/prx_survey_uudong21.js"></script>
+
+  <!-- Idea layers (depend on own prx_, own poi_) -->
+  <script src="comsect1/project/features/survey/ida_survey_uudong21.js"></script>
+  <script src="comsect1/infra/bootstrap/ida_core_uudong21.js"></script>
+
+  <!-- API entry point -->
+  <script src="comsect1/api/app_uudong21.js"></script>
+  <script>
+    AppUudong21.init();
+  </script>
+
+  <!-- Debug (remove for production) -->
+  <script src="tools/debug_survey.js"></script>
+</body>
+</html>

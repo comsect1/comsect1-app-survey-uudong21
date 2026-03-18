@@ -1,0 +1,426 @@
+/**
+ * poi_survey.css
+ * Poiesis layer: visual presentation.
+ * Replaces Tailwind CSS with pure CSS.
+ * No domain judgment — mechanical styling only.
+ */
+
+/* --- Reset & Base --- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #1f2937;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* --- Backdrop --- */
+
+.survey-backdrop {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #eff6ff, #f5f3ff, #fdf2f8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* --- Card --- */
+
+.survey-card {
+  max-width: 42rem;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .survey-card {
+    padding: 3rem;
+  }
+}
+
+/* --- Intro --- */
+
+.intro-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.intro-mascot {
+  display: block;
+  margin: 0 auto 1.5rem;
+  height: 8rem;
+}
+
+.intro-emoji {
+  font-size: 3.75rem;
+  margin-bottom: 1rem;
+}
+
+.intro-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+@media (min-width: 768px) {
+  .intro-title {
+    font-size: 2.25rem;
+  }
+}
+
+.intro-message {
+  color: #4b5563;
+  line-height: 1.625;
+}
+
+.btn-start {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to right, #a855f7, #ec4899);
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.btn-start:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* --- Progress --- */
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.progress-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #9333ea;
+}
+
+.progress-percent {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.progress-track {
+  width: 100%;
+  background: #e5e7eb;
+  border-radius: 9999px;
+  height: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.progress-fill {
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #a855f7, #ec4899);
+  transition: width 0.3s;
+}
+
+/* --- Question --- */
+
+.question-section {
+  margin-bottom: 3rem;
+}
+
+.question-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.625;
+  word-break: keep-all;
+}
+
+/* --- Answer buttons --- */
+
+.answer-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.btn-answer {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 2px solid #e5e7eb;
+  background: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.btn-answer:hover {
+  border-color: #c084fc;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-answer--selected {
+  border-color: #a855f7;
+  background: #faf5ff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Confirm button (multi-select) --- */
+
+.btn-confirm {
+  display: block;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: linear-gradient(to right, #a855f7, #ec4899);
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.btn-confirm:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-confirm--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-confirm--disabled:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+/* --- Previous button --- */
+
+.btn-prev {
+  margin-top: 2rem;
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-prev:hover {
+  color: #374151;
+}
+
+/* --- Review screen --- */
+
+.review-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.review-message {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.review-list {
+  margin-bottom: 1.5rem;
+}
+
+.review-item {
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.review-item:hover {
+  border-color: #c084fc;
+  background: #faf5ff;
+}
+
+.review-question {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.review-number {
+  font-weight: 600;
+  color: #9333ea;
+}
+
+.review-answer {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* --- Result header --- */
+
+.result-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.result-mascot {
+  display: block;
+  margin: 0 auto 1rem;
+  height: 10rem;
+}
+
+.result-emoji {
+  font-size: 3.75rem;
+  margin-bottom: 1rem;
+}
+
+.result-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.result-score {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.result-subtitle {
+  color: #4b5563;
+}
+
+/* --- Result message --- */
+
+.result-message {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid;
+  margin-bottom: 1.5rem;
+}
+
+.result-message--high {
+  background: #fef2f2;
+  border-left-color: #f87171;
+}
+
+.result-message--low {
+  background: #fffbeb;
+  border-left-color: #fbbf24;
+}
+
+.result-message-text {
+  color: #374151;
+  line-height: 1.625;
+}
+
+/* --- Recommendation section --- */
+
+.rec-section {
+  margin-bottom: 1rem;
+}
+
+.rec-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+/* --- Recommendation cards --- */
+
+.rec-card {
+  display: block;
+  color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition: box-shadow 0.3s, transform 0.3s;
+  margin-bottom: 1rem;
+}
+
+.rec-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.rec-card--purple-pink {
+  background: linear-gradient(to right, #a855f7, #ec4899);
+}
+
+.rec-card--blue-purple {
+  background: linear-gradient(to right, #3b82f6, #a855f7);
+}
+
+.rec-emoji {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.rec-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.rec-desc {
+  opacity: 0.85;
+  font-size: 0.875rem;
+}
+
+/* --- Reset button --- */
+
+.btn-reset {
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #e5e7eb;
+  color: #374151;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-reset:hover {
+  background: #d1d5db;
+}
